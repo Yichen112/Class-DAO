@@ -1,6 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
+//Voting token created with the following features:
+//Can keep track on the individual votes for a governance on-chain as well as giving to power to delegate a vote to a trusted third-party
+//Ability for the holders of the tokens to burn/destroy them
+//Specific accounts can be granted the ability to emit new tokens, such that our ERC721 token is mintable
+//Besides, token with a flexible access control where each action within the DAO requires a separate role, which can be granted to several authorized accounts
+
+
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
