@@ -6,8 +6,15 @@ import "@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol
 import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
 
-contract GovernanceLogic is Governor, GovernorCountingSimple, GovernorVotes, GovernorVotesQuorumFraction {
-    constructor(IVotes _token)
+contract GovernanceLogic is
+    Governor,
+    GovernorCountingSimple,
+    GovernorVotes,
+    GovernorVotesQuorumFraction
+{
+    constructor(
+        IVotes _token
+    )
         Governor("GovernanceLogic")
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(4)
@@ -23,7 +30,9 @@ contract GovernanceLogic is Governor, GovernorCountingSimple, GovernorVotes, Gov
 
     // The following functions are overrides required by Solidity.
 
-    function quorum(uint256 blockNumber)
+    function quorum(
+        uint256 blockNumber
+    )
         public
         view
         override(IGovernor, GovernorVotesQuorumFraction)
