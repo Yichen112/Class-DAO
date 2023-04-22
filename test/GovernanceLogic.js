@@ -32,13 +32,3 @@ describe("GovernanceLogic", () => {
   });
 });
 
-// Deploy a new GovernanceLogic contract with the voting token contract's address as the constructor argument.
-const GovernanceLogic = await ethers.getContractFactory("GovernanceLogic");
-const deploymentTx = await GovernanceLogic.getDeployTransaction(votingToken.address);
-const deploymentCost = await ethers.provider.estimateGas(deploymentTx);
-governanceLogic = await GovernanceLogic.deploy(votingToken.address);
-const deploymentReceipt = await governanceLogic.deployTransaction.wait();
-const deployedAddress = governanceLogic.address;
-
-console.log(`GovernanceLogic deployed at: ${deployedAddress}`);
-console.log(`Gas used for deployment: ${deploymentReceipt.gasUsed.toString()}, gas cost: ${deploymentReceipt.gasUsed.mul(deploymentReceipt.effectiveGasPrice).toString()}`);
